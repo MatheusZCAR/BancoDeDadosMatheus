@@ -1,0 +1,7 @@
+SELECT Modelo AS Bateria_Compativel
+FROM Baterias
+WHERE BateriaID IN (
+  SELECT BateriaID2
+  FROM Compatibilidades
+  WHERE BateriaID1 = (SELECT BateriaID FROM Baterias WHERE Modelo = 'NOME DO MODELO')
+);
